@@ -26,11 +26,11 @@ class LinkedList {
 
   // 2. prepend(value) parameter, this method will add the node
   // to the beginning of the list
-  // prepend(value) {
-  // method to append node to the beginning of the list
-  // const newNode = new Node(value);
-  // console.log(newNode);
-  // }
+  prepend(value) {
+    // method to append node to the beginning of the list
+    const newNode = new Node(value);
+    return newNode;
+  }
 
   // Check if the head has any value, and assign the node's value ?
   // Example 5 (head) -> 2 (tail)

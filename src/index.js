@@ -8,5 +8,8 @@ const tail = linkedList.append(5);
 
 const head = new Node(2);
 
+const newHead = linkedList.prepend(8);
+newHead.nodeNext = head;
+console.log(newHead);
+
 head.nodeNext = tail;
-console.log(head);
