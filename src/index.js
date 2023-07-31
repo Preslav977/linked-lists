@@ -1,16 +1,12 @@
 import LinkedList from "./linkedList";
 import Node from "./Node";
+import "./style.css";
 
-// Linked Lists pseudo code
+const linkedList = new LinkedList();
 
-// Before begin the project choose between factory functions or class syntax !
+const tail = linkedList.append(5);
 
-// Two important classes/factory functions that are needed.
-// 1. The first one is for representing the full list
-// Maybe for creating new objects (nodes) ?
+const head = new Node(2);
 
-// 2. Node class/factory with value property, and link to the nextNode
-// set both my default.
-// Hmm value property, get for reading, set for writing ?
-// And this will be used to point on to the nextNode,
-// something like this, previous: value, next: null ?
+head.nodeNext = tail;
+console.log(head);
