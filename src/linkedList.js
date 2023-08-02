@@ -70,6 +70,9 @@ class LinkedList {
   // For loop then return the tail such as the last node return it in the current list ?
   tail() {
     // method that will return the last node of the list
+    if (this.tailOfTheList) {
+      return this.tailOfTheList;
+    }
   }
 
   // 6. at(index), method that will return the node of given index.
