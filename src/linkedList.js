@@ -61,6 +61,9 @@ class LinkedList {
   // Condition if the head exist such as the first node return it, no loop maybe here ?
   head() {
     // method that will return the first node of the list
+    if (this.headOfTheList) {
+      return this.headOfTheList;
+    }
   }
 
   // 5. Tail, method that will return the last node of the list
