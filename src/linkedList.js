@@ -21,9 +21,11 @@ class LinkedList {
 
   headOfTheList;
 
+  tailOfTheList;
+
   append(value) {
     // method to append node to the end of the list
-    if (this.headOfTheList === undefined) {
+    if (!this.headOfTheList) {
       this.headOfTheList = new Node(value);
       console.log(this.headOfTheList);
     } else {
@@ -36,7 +38,21 @@ class LinkedList {
   // 2. prepend(value) parameter, this method will add the node
   // to the beginning of the list
   prepend(value) {
+    if (!this.tailOfTheList) {
+      this.tailOfTheList = new Node(value);
+      console.log(this.tailOfTheList);
+    } else {
+      const newNode = new Node(value);
+      // this.tailOfTheList = this.headOfTheList;
+      newNode.nodeNext = this.tailOfTheList;
+      console.log(newNode);
+    }
     // method to append node to the beginning of the list
+    // tail is undefined
+    // create new node
+    // otherwise
+    // create new node
+    // point the tail to the head
   }
 
   // Check if the head has any value, and assign the node's value ?
