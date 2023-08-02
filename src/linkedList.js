@@ -19,26 +19,24 @@ class LinkedList {
   // 1. append(value) parameter, this method will add the node to the end of the list
   // Maybe check if there is tail and has any value to assign to the node's value
 
-  headOfTheList = new Node(5);
-
-  tailOfTheList = new Node(7);
-
-  countNodes = 0;
+  headOfTheList;
 
   append(value) {
     // method to append node to the end of the list
-    const newTail = new Node(value);
-    this.countNodes += 1;
-    return newTail;
+    if (this.headOfTheList === undefined) {
+      this.headOfTheList = new Node(value);
+      console.log(this.headOfTheList);
+    } else {
+      const newNode = new Node(value);
+      this.headOfTheList.nextNode = newNode;
+      console.log(this.headOfTheList);
+    }
   }
 
   // 2. prepend(value) parameter, this method will add the node
   // to the beginning of the list
   prepend(value) {
     // method to append node to the beginning of the list
-    const newHead = new Node(value);
-    this.countNodes += 1;
-    return newHead;
   }
 
   // Check if the head has any value, and assign the node's value ?
@@ -53,7 +51,6 @@ class LinkedList {
   // 3.Size, method that will return the numbers of nodes in the list
   // Maybe for loop though the whole list, and return the nodes in the current list ?
   size() {
-    return this.countNodes;
     // return the number of nodes of the list
   }
 
@@ -61,18 +58,12 @@ class LinkedList {
   // Condition if the head exist such as the first node return it, no loop maybe here ?
   head() {
     // method that will return the first node of the list
-    if (this.headOfTheList) {
-      return this.headOfTheList;
-    }
   }
 
   // 5. Tail, method that will return the last node of the list
   // For loop then return the tail such as the last node return it in the current list ?
   tail() {
     // method that will return the last node of the list
-    if (this.tailOfTheList) {
-      return this.tailOfTheList;
-    }
   }
 
   // 6. at(index), method that will return the node of given index.

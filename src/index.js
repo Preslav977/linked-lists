@@ -1,20 +1,11 @@
 import LinkedList from "./linkedList";
-import Node from "./Node";
 import "./style.css";
 
 const linkedList = new LinkedList();
 
-const tail = linkedList.append(5);
+const firsNode = linkedList.append(2);
 
-const head = new Node(2);
+console.log(firsNode);
 
-const newHead = linkedList.prepend(8);
-newHead.nodeNext = head;
-
-head.nodeNext = tail;
-
-console.log(newHead);
-
-console.log(linkedList.size());
-
-// console.log(linkedList.head(), linkedList.tail());
+const secondNode = linkedList.append(6);
+console.log(secondNode);
