@@ -17,19 +17,28 @@ import Node from "./Node";
 class LinkedList {
   // Linked List functions
   // 1. append(value) parameter, this method will add the node to the end of the list
-  // Maybe check if there is tail and has any value to assign to the node's value ?
+  // Maybe check if there is tail and has any value to assign to the node's value
+
+  headOfTheList = new Node(5);
+
+  tailOfTheList = new Node(7);
+
+  countNodes = 0;
+
   append(value) {
     // method to append node to the end of the list
-    const newNode = new Node(value);
-    return newNode;
+    const newTail = new Node(value);
+    this.countNodes += 1;
+    return newTail;
   }
 
   // 2. prepend(value) parameter, this method will add the node
   // to the beginning of the list
   prepend(value) {
     // method to append node to the beginning of the list
-    const newNode = new Node(value);
-    return newNode;
+    const newHead = new Node(value);
+    this.countNodes += 1;
+    return newHead;
   }
 
   // Check if the head has any value, and assign the node's value ?
@@ -40,30 +49,36 @@ class LinkedList {
   // If 12 is added as the tail 1 -> 5 -> 2 -> 12
   // 12 is the new tail, 1 points as next value to 5, 5 next value points to 2 and 2
   // points to 12, 12 points to null
+
   // 3.Size, method that will return the numbers of nodes in the list
   // Maybe for loop though the whole list, and return the nodes in the current list ?
-  // size() {
-  // return the number of nodes of the list
-  // }
+  size() {
+    return this.countNodes;
+    // return the number of nodes of the list
+  }
 
   // 4. Head, method that will return the first node the first node of the list
   // Condition if the head exist such as the first node return it, no loop maybe here ?
-  // head() {
-  // method that will return the first node of the list
-  // }
+  head() {
+    // method that will return the first node of the list
+  }
 
   // 5. Tail, method that will return the last node of the list
   // For loop then return the tail such as the last node return it in the current list ?
-  // tail() {
-  // method that will return the last node of the list
-  // }
+  tail() {
+    // method that will return the last node of the list
+  }
 
   // 6. at(index), method that will return the node of given index.
   // For loop so see in index exist in the current list such as 0,
   // if it does return the node
-  // at(index) {
-  // method that will return node at given index
-  // }
+  at(index) {
+    // method that will return node at given index
+    // loop maybe for the node at the pointed index
+    // next check if the node exist
+    // return the node at the pointed index
+    // otherwise maybe console log not found
+  }
 
   // 7. Pop(), simple method that will remove the last node of the list.
   // pop() {
