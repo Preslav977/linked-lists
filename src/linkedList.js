@@ -23,14 +23,24 @@ class LinkedList {
 
   tailOfTheList;
 
+  countNode = 0;
+
   append(value) {
-    // method to append node to the end of the list
+    // if the tail doesn't exist
+    // or the list is empty
     if (!this.headOfTheList) {
+      // create new node which will become the head
       this.headOfTheList = new Node(value);
+      // count the node if it's created
+      this.countNode++;
       console.log(this.headOfTheList);
+      // else if there is a head already
     } else {
+      // create new node
       const newNode = new Node(value);
+      // point the head to the new node
       this.headOfTheList.nextNode = newNode;
+      this.countNode++;
       console.log(this.headOfTheList);
     }
   }
@@ -38,21 +48,22 @@ class LinkedList {
   // 2. prepend(value) parameter, this method will add the node
   // to the beginning of the list
   prepend(value) {
-    if (!this.tailOfTheList) {
-      this.tailOfTheList = new Node(value);
-      console.log(this.tailOfTheList);
+    // if the head doesn't exist
+    if (!this.headOfTheList) {
+      // create new node which will become the head
+      this.headOfTheList = new Node(value);
+      // count the created node
+      this.countNode++;
+      console.log(this.headOfTheList);
     } else {
+      // else create new node
       const newNode = new Node(value);
-      // this.tailOfTheList = this.headOfTheList;
-      newNode.nodeNext = this.tailOfTheList;
+      // point that node to the previous node
+      newNode.nodeNext = this.headOfTheList;
+      // count the created node
+      this.countNode++;
       console.log(newNode);
     }
-    // method to append node to the beginning of the list
-    // tail is undefined
-    // create new node
-    // otherwise
-    // create new node
-    // point the tail to the head
   }
 
   // Check if the head has any value, and assign the node's value ?
@@ -68,6 +79,7 @@ class LinkedList {
   // Maybe for loop though the whole list, and return the nodes in the current list ?
   size() {
     // return the number of nodes of the list
+    return this.countNode;
   }
 
   // 4. Head, method that will return the first node the first node of the list

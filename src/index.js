@@ -3,14 +3,12 @@ import "./style.css";
 
 const linkedList = new LinkedList();
 
-// const head = linkedList.append(2);
+const head = linkedList.append(5);
 
-// const nodeAfterHead = linkedList.append(6);
+const tail = linkedList.append(6);
 
-// const anotherNodeAfterHead = linkedList.append(9);
+const newHead = linkedList.prepend(7);
 
-// const tail = linkedList.prepend(1);
+const anotherNewHead = linkedList.prepend(9);
 
-// const nodeBeforeTail = linkedList.prepend(2);
-
-// const anotherNodeBeforeTail = linkedList.prepend(7);
+console.log(linkedList.size());
