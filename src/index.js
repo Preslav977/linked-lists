@@ -5,10 +5,16 @@ const linkedList = new LinkedList();
 
 const head = linkedList.append(5);
 
-const tail = linkedList.append(6);
+const tail = linkedList.append(3);
 
-const newHead = linkedList.prepend(7);
+const test = linkedList.prepend(1);
 
-const anotherNewHead = linkedList.prepend(9);
+const test1 = linkedList.prepend(6);
 
-console.log(linkedList.size());
+const test2 = linkedList.prepend(11);
+
+linkedList.size();
+
+linkedList.head();
+
+// linkedList.tail();

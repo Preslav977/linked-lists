@@ -28,20 +28,22 @@ class LinkedList {
   append(value) {
     // if the tail doesn't exist
     // or the list is empty
-    if (!this.headOfTheList) {
+    if (!this.tailOfTheList) {
       // create new node which will become the head
-      this.headOfTheList = new Node(value);
+      const newNode = new Node(value);
       // count the node if it's created
-      this.countNode++;
-      console.log(this.headOfTheList);
+      this.tailOfTheList = newNode;
+      console.log(this.tailOfTheList);
+      this.countNode += 1;
       // else if there is a head already
     } else {
       // create new node
       const newNode = new Node(value);
       // point the head to the new node
-      this.headOfTheList.nextNode = newNode;
-      this.countNode++;
-      console.log(this.headOfTheList);
+      this.tailOfTheList.nextNode = newNode;
+      // count the nodes
+      console.log(this.tailOfTheList);
+      this.countNode += 1;
     }
   }
 
@@ -49,20 +51,20 @@ class LinkedList {
   // to the beginning of the list
   prepend(value) {
     // if the head doesn't exist
-    if (!this.headOfTheList) {
+    if (!this.tailOfTheList) {
       // create new node which will become the head
-      this.headOfTheList = new Node(value);
+      this.tailOfTheList = new Node(value);
       // count the created node
-      this.countNode++;
-      console.log(this.headOfTheList);
+      console.log(this.tailOfTheList);
+      this.countNode += 1;
     } else {
       // else create new node
-      const newNode = new Node(value);
+      this.headOfTheList = new Node(value);
       // point that node to the previous node
-      newNode.nodeNext = this.headOfTheList;
+      this.headOfTheList.nodeNext = this.tailOfTheList;
       // count the created node
-      this.countNode++;
-      console.log(newNode);
+      console.log(this.headOfTheList);
+      this.countNode += 1;
     }
   }
 
@@ -79,6 +81,7 @@ class LinkedList {
   // Maybe for loop though the whole list, and return the nodes in the current list ?
   size() {
     // return the number of nodes of the list
+    console.log(this.countNode);
     return this.countNode;
   }
 
@@ -86,6 +89,13 @@ class LinkedList {
   // Condition if the head exist such as the first node return it, no loop maybe here ?
   head() {
     // method that will return the first node of the list
+    // traverse to the first node
+    // check if the first node exist
+    // if exist return it
+    if (this.headOfTheList) {
+      console.log(this.headOfTheList);
+      return this.headOfTheList;
+    }
   }
 
   // 5. Tail, method that will return the last node of the list
