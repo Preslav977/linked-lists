@@ -8,10 +8,10 @@ import Node from "./Node";
 // 1. The first one is for representing the full list
 // Maybe for creating new objects (nodes) ?
 
-// 2. Node class/factory with value property, and link to the nextNode
+// 2. Node class/factory with value property, and link to the nodeNext
 // set both my default.
 // Hmm value property, get for reading, set for writing ?
-// And this will be used to point on to the nextNode,
+// And this will be used to point on to the nodeNext,
 // something like this, previous: value, next: null ?
 
 class LinkedList {
@@ -19,31 +19,31 @@ class LinkedList {
   // 1. append(value) parameter, this method will add the node to the end of the list
   // Maybe check if there is tail and has any value to assign to the node's value
 
-  headOfTheList;
+  head;
 
-  tailOfTheList;
+  tail;
 
-  countNode = 0;
+  countNodes = 0;
 
   append(value) {
     // if the tail doesn't exist
     // or the list is empty
-    if (!this.tailOfTheList) {
+    if (!this.head) {
       // create new node which will become the head
       const newNode = new Node(value);
       // count the node if it's created
-      this.tailOfTheList = newNode;
-      console.log(this.tailOfTheList);
-      this.countNode += 1;
+      this.head = newNode;
+      console.log(this.head);
+      this.countNodes += 1;
       // else if there is a head already
     } else {
       // create new node
-      const newNode = new Node(value);
+      this.tail = new Node(value);
       // point the head to the new node
-      this.tailOfTheList.nextNode = newNode;
+      this.head.nodeNext = this.tail;
       // count the nodes
-      console.log(this.tailOfTheList);
-      this.countNode += 1;
+      console.log(this.head);
+      this.countNodes += 1;
     }
   }
 
@@ -51,20 +51,21 @@ class LinkedList {
   // to the beginning of the list
   prepend(value) {
     // if the head doesn't exist
-    if (!this.tailOfTheList) {
+    if (!this.head) {
       // create new node which will become the head
-      this.tailOfTheList = new Node(value);
+      this.head = new Node(value);
       // count the created node
-      console.log(this.tailOfTheList);
-      this.countNode += 1;
+      console.log(this.head);
+      this.countNodes += 1;
     } else {
       // else create new node
-      this.headOfTheList = new Node(value);
+      const newNode = new Node(value);
       // point that node to the previous node
-      this.headOfTheList.nodeNext = this.tailOfTheList;
+      newNode.nodeNext = this.head;
+      this.head = newNode;
       // count the created node
-      console.log(this.headOfTheList);
-      this.countNode += 1;
+      console.log(this.head);
+      this.countNodes += 1;
     }
   }
 
@@ -81,39 +82,48 @@ class LinkedList {
   // Maybe for loop though the whole list, and return the nodes in the current list ?
   size() {
     // return the number of nodes of the list
-    console.log(this.countNode);
-    return this.countNode;
+    console.log(this.countNodes);
+    return this.countNodes;
   }
 
   // 4. Head, method that will return the first node the first node of the list
   // Condition if the head exist such as the first node return it, no loop maybe here ?
-  head() {
+  findHead() {
     // method that will return the first node of the list
     // traverse to the first node
     // check if the first node exist
     // if exist return it
-    if (this.headOfTheList) {
-      console.log(this.headOfTheList);
-      return this.headOfTheList;
+    if (this.head) {
+      console.log(this.head);
+      return this.head;
     }
   }
 
   // 5. Tail, method that will return the last node of the list
   // For loop then return the tail such as the last node return it in the current list ?
-  tail() {
+  findTail() {
     // method that will return the last node of the list
+    let searchForLastNode = this.head;
+    while (searchForLastNode.nodeNext !== null) {
+      searchForLastNode = searchForLastNode.nodeNext;
+      // if (searchForLastNode.nodeNext === null) {
+      // console.log(searchForLastNode);
+      // return searchForLastNode;
+    }
+    console.log(searchForLastNode);
+    return searchForLastNode;
   }
 
   // 6. at(index), method that will return the node of given index.
   // For loop so see in index exist in the current list such as 0,
   // if it does return the node
-  at(index) {
-    // method that will return node at given index
-    // loop maybe for the node at the pointed index
-    // next check if the node exist
-    // return the node at the pointed index
-    // otherwise maybe console log not found
-  }
+  // at(index) {
+  // method that will return node at given index
+  // loop maybe for the node at the pointed index
+  // next check if the node exist
+  // return the node at the pointed index
+  // otherwise maybe console log not found
+  // }
 
   // 7. Pop(), simple method that will remove the last node of the list.
   // pop() {
@@ -163,7 +173,7 @@ class LinkedList {
   // the pointers updated, and five has to point to twelve.
   // Important tip: When you insert or remove a node, consider
   // how it will affect the existing nodes.
-  // Some of the nodes will need their nextNode link updated.
+  // Some of the nodes will need their nodeNext link updated.
 }
 
 export default LinkedList;
