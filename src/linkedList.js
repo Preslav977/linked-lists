@@ -8,10 +8,10 @@ import Node from "./Node";
 // 1. The first one is for representing the full list
 // Maybe for creating new objects (nodes) ?
 
-// 2. Node class/factory with value property, and link to the nodeNext
+// 2. Node class/factory with value property, and link to the nextNode
 // set both my default.
 // Hmm value property, get for reading, set for writing ?
-// And this will be used to point on to the nodeNext,
+// And this will be used to point on to the nextNode,
 // something like this, previous: value, next: null ?
 
 class LinkedList {
@@ -40,7 +40,7 @@ class LinkedList {
       // create new node
       this.tail = new Node(value);
       // point the head to the new node
-      this.head.nodeNext = this.tail;
+      this.head.nextNode = this.tail;
       // count the nodes
       console.log(this.head);
       this.countNodes += 1;
@@ -61,7 +61,7 @@ class LinkedList {
       // else create new node
       const newNode = new Node(value);
       // point that node to the previous node
-      newNode.nodeNext = this.head;
+      newNode.nextNode = this.head;
       this.head = newNode;
       // count the created node
       console.log(this.head);
@@ -104,26 +104,43 @@ class LinkedList {
   findTail() {
     // method that will return the last node of the list
     let searchForLastNode = this.head;
-    while (searchForLastNode.nodeNext !== null) {
-      searchForLastNode = searchForLastNode.nodeNext;
-      // if (searchForLastNode.nodeNext === null) {
-      // console.log(searchForLastNode);
-      // return searchForLastNode;
+    while (searchForLastNode !== null) {
+      searchForLastNode = searchForLastNode.nextNode;
+      if (searchForLastNode.nextNode === null) {
+        console.log(searchForLastNode);
+        return searchForLastNode;
+      }
     }
-    console.log(searchForLastNode);
-    return searchForLastNode;
   }
 
   // 6. at(index), method that will return the node of given index.
   // For loop so see in index exist in the current list such as 0,
   // if it does return the node
-  // at(index) {
-  // method that will return node at given index
-  // loop maybe for the node at the pointed index
-  // next check if the node exist
-  // return the node at the pointed index
-  // otherwise maybe console log not found
-  // }
+  at(index) {
+    // method that will return node at given index
+    // loop maybe for the node at the pointed index
+    // next check if the node exist
+    // return the node at the pointed index
+    // otherwise maybe console log not found
+    let nodePosition = 0;
+    let searchForNode = this.head;
+
+    if (nodePosition === 0 && index === 0) {
+      console.log(searchForNode);
+      return searchForNode;
+    }
+
+    while (searchForNode !== index) {
+      nodePosition += 1;
+      searchForNode = searchForNode.nextNode;
+      console.log("This is the the wanted index", index);
+      console.log("This is the node position", nodePosition);
+      if (index === nodePosition) {
+        console.log(searchForNode);
+        return searchForNode;
+      }
+    }
+  }
 
   // 7. Pop(), simple method that will remove the last node of the list.
   // pop() {
@@ -173,7 +190,7 @@ class LinkedList {
   // the pointers updated, and five has to point to twelve.
   // Important tip: When you insert or remove a node, consider
   // how it will affect the existing nodes.
-  // Some of the nodes will need their nodeNext link updated.
+  // Some of the nodes will need their nextNode link updated.
 }
 
 export default LinkedList;

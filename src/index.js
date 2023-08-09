@@ -7,7 +7,7 @@ const head = linkedList.append(5);
 
 const tail = linkedList.append(3);
 
-const testing = linkedList.append(6);
+// const testing = linkedList.append(6);
 
 const test = linkedList.prepend(1);
 
@@ -17,4 +17,6 @@ const test = linkedList.prepend(1);
 
 // linkedList.findHead();
 
-linkedList.findTail();
+// linkedList.findTail();
+
+linkedList.at(2);

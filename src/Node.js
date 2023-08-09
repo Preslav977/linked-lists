@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 class Node {
-  constructor(value = null, nodeNext = null) {
+  constructor(value = null, nextNode = null) {
     this.value = value;
-    this.nodeNext = nodeNext;
+    this.nextNode = nextNode;
   }
 
   get value() {
@@ -13,12 +13,12 @@ class Node {
     this._value = value;
   }
 
-  get nodeNext() {
-    return this._nodeNext;
+  get nextNode() {
+    return this._nextNode;
   }
 
-  set nodeNext(value) {
-    this._nodeNext = value;
+  set nextNode(value) {
+    this._nextNode = value;
   }
 }
 
