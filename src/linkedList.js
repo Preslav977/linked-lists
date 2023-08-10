@@ -223,9 +223,10 @@ class LinkedList {
   // In the current format:
   // (value) -> (value) -> (value) -> null
   // Using JSON stringify maybe to turn these objects as strings in JSON format ?
-  // toString() {
-  // method that will represent the objects as strings
-  // }
+  toString() {
+    // method that will represent the objects as strings
+    console.log(`(${this.head.value}) ->`, `${this.tail.nextNode}`);
+  }
 
   /// /////////////////////////////////////////////////////////////////////////////
   // Extra methods !!!

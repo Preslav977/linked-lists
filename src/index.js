@@ -27,4 +27,6 @@ const test = linkedList.prepend(1);
 
 // console.log(linkedList.contains(4));
 
-linkedList.findValue(3);
+// linkedList.findValue(3);
+
+linkedList.toString();
