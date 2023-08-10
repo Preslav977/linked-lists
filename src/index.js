@@ -23,4 +23,6 @@ const test = linkedList.prepend(1);
 
 // linkedList.at(2);
 
-linkedList.pop();
+// linkedList.pop();
+
+console.log(linkedList.contains(4));

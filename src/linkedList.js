@@ -165,9 +165,31 @@ class LinkedList {
   // 8. contains(value), method that will return true if the
   // exist in the list, otherwise false
   // For loop, to see if value exist return true if not false.
-  // contains(value) {
-  // method that will return true if the value exist otherwise false
-  // }
+  contains(value) {
+    // method that will return true if the value exist otherwise false
+    // start from the head
+    let searchValue = this.head;
+
+    if (searchValue.value === value) {
+      return true;
+    }
+
+    // if node value is not equal to the argument
+    while (searchValue.value !== value) {
+      // move on to the next node
+      searchValue = searchValue.nextNode;
+      // if node value is equal to the value
+      if (searchValue.value === value) {
+        return true;
+      }
+
+      if (searchValue.nextNode === null) {
+        // console.log(searchValue.value);
+        // console.log(value);
+        return false;
+      }
+    }
+  }
 
   // 9. findValue(value), method that will return the index of the node containing
   // value null if it doesn't exist
