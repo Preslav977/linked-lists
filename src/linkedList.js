@@ -194,9 +194,29 @@ class LinkedList {
   // 9. findValue(value), method that will return the index of the node containing
   // value null if it doesn't exist
   // For loop, if the value exist return the index of the node, else return null
-  // findValue(value) {
-  // method that will return the index of the node, else it will return null
-  // }
+  findValue(value) {
+    // method that will return the index of the node, else it will return null
+    let nodePosition = 0;
+    let searchNodeIndex = this.head;
+
+    if (searchNodeIndex.value === value && nodePosition === 0) {
+      console.log(nodePosition);
+      return nodePosition;
+    }
+
+    while (searchNodeIndex.value !== value) {
+      nodePosition += 1;
+      searchNodeIndex = searchNodeIndex.nextNode;
+      if (searchNodeIndex.value === value) {
+        console.log(nodePosition);
+        return nodePosition;
+      }
+
+      if (searchNodeIndex.nextNode === null) {
+        return null;
+      }
+    }
+  }
 
   // 10. toString(), method that will represent LinkedLists objects
   // as strings in the console.

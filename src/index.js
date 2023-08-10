@@ -25,4 +25,6 @@ const test = linkedList.prepend(1);
 
 // linkedList.pop();
 
-console.log(linkedList.contains(4));
+// console.log(linkedList.contains(4));
+
+linkedList.findValue(3);
