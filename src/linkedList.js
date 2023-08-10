@@ -133,8 +133,8 @@ class LinkedList {
     while (searchForNode !== index) {
       nodePosition += 1;
       searchForNode = searchForNode.nextNode;
-      console.log("This is the the wanted index", index);
-      console.log("This is the node position", nodePosition);
+      // console.log("This is the the wanted index", index);
+      // console.log("This is the node position", nodePosition);
       if (index === nodePosition) {
         console.log(searchForNode);
         return searchForNode;
@@ -143,9 +143,24 @@ class LinkedList {
   }
 
   // 7. Pop(), simple method that will remove the last node of the list.
-  // pop() {
-  // method that will remove the last node
-  // }
+  pop() {
+    // method that will remove the last node
+    let searchLastNode = this.head;
+    searchLastNode = searchLastNode.nextNode;
+    while (searchLastNode !== null) {
+      if (
+        searchLastNode.nextNode === null ||
+        searchLastNode.nextNode.nextNode === null ||
+        searchLastNode.nextNode.nextNode.nextNode === null ||
+        searchLastNode.nextNode.nextNode.nextNode.nextNode === null ||
+        searchLastNode.nextNode.nextNode.nextNode.nextNode.nextNode === null
+      ) {
+        searchLastNode.nextNode = null;
+        console.log(searchLastNode);
+        return searchLastNode;
+      }
+    }
+  }
 
   // 8. contains(value), method that will return true if the
   // exist in the list, otherwise false

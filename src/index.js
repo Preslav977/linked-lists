@@ -3,11 +3,13 @@ import "./style.css";
 
 const linkedList = new LinkedList();
 
-const head = linkedList.append(5);
+const head = linkedList.append(2);
 
 const tail = linkedList.append(3);
 
-// const testing = linkedList.append(6);
+// const testing = linkedList.append(4);
+
+// const anotherTest = linkedList.append(5);
 
 const test = linkedList.prepend(1);
 
@@ -19,4 +21,6 @@ const test = linkedList.prepend(1);
 
 // linkedList.findTail();
 
-linkedList.at(2);
+// linkedList.at(2);
+
+linkedList.pop();
