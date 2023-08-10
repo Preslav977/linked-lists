@@ -3,17 +3,17 @@ import "./style.css";
 
 const linkedList = new LinkedList();
 
-const head = linkedList.append(2);
+const firstNode = linkedList.append(2);
 
-const tail = linkedList.append(3);
+const secondNode = linkedList.append(3);
 
-// const testing = linkedList.append(4);
+// const thirdNode = linkedList.append(4);
 
-// const anotherTest = linkedList.append(5);
+// const fifthNode = linkedList.append(5);
 
-const test = linkedList.prepend(1);
+const sixthNode = linkedList.prepend(1);
 
-// const test1 = linkedList.prepend(6);
+// const seventhNode = linkedList.prepend(6);
 
 // linkedList.size();
 
@@ -29,4 +29,4 @@ const test = linkedList.prepend(1);
 
 // linkedList.findValue(3);
 
-linkedList.toString();
+console.log(linkedList.toString());
