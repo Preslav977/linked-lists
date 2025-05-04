@@ -3,27 +3,25 @@ import "./style.css";
 
 const linkedList = new LinkedList();
 
-const firstNode = linkedList.append(2);
+// console.log(linkedList);
 
-const secondNode = linkedList.append(3);
+linkedList.prepend(1);
 
-// const thirdNode = linkedList.append(4);
+linkedList.append(2);
 
-// const fifthNode = linkedList.append(5);
+linkedList.prepend(3);
 
-const sixthNode = linkedList.prepend(1);
+// linkedList.prepend(4);
 
-// const seventhNode = linkedList.prepend(6);
+// console.log(linkedList.pop());
 
-// linkedList.size();
+// linkedList.prepend(3);
 
-// linkedList.findHead();
+// linkedList.append("hamster");
 
-// linkedList.findTail();
+// linkedList.prepend("snake");
 
-// linkedList.at(2);
-
-// linkedList.pop();
+// linkedList.append(2);
 
 // console.log(linkedList.contains(4));
 

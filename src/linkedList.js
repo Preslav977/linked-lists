@@ -94,7 +94,7 @@ class LinkedList {
     // check if the first node exist
     // if exist return it
     if (this.head) {
-      console.log(this.head);
+      // console.log(this.head);
       return this.head;
     }
   }
@@ -107,7 +107,7 @@ class LinkedList {
     while (searchForLastNode !== null) {
       searchForLastNode = searchForLastNode.nextNode;
       if (searchForLastNode.nextNode === null) {
-        console.log(searchForLastNode);
+        // console.log(searchForLastNode);
         return searchForLastNode;
       }
     }
@@ -126,7 +126,7 @@ class LinkedList {
     let searchForNode = this.head;
 
     if (nodePosition === 0 && index === 0) {
-      console.log(searchForNode);
+      // console.log(searchForNode);
       return searchForNode;
     }
 
@@ -136,7 +136,7 @@ class LinkedList {
       // console.log("This is the the wanted index", index);
       // console.log("This is the node position", nodePosition);
       if (index === nodePosition) {
-        console.log(searchForNode);
+        // console.log(searchForNode);
         return searchForNode;
       }
     }
@@ -145,19 +145,23 @@ class LinkedList {
   // 7. Pop(), simple method that will remove the last node of the list.
   pop() {
     // method that will remove the last node
-    let searchLastNode = this.head;
-    searchLastNode = searchLastNode.nextNode;
-    while (searchLastNode !== null) {
-      if (
-        searchLastNode.nextNode === null ||
-        searchLastNode.nextNode.nextNode === null ||
-        searchLastNode.nextNode.nextNode.nextNode === null ||
-        searchLastNode.nextNode.nextNode.nextNode.nextNode === null ||
-        searchLastNode.nextNode.nextNode.nextNode.nextNode.nextNode === null
-      ) {
-        searchLastNode.nextNode = null;
-        console.log(searchLastNode);
-        return searchLastNode;
+    const headOfList = this.head;
+
+    let previousNodeBeforeTail = this.head;
+
+    if (headOfList.nextNode === null) {
+      throw new Error("You cannot delete the head");
+    } else {
+      while (previousNodeBeforeTail !== null) {
+        if (
+          previousNodeBeforeTail.nextNode !== null &&
+          previousNodeBeforeTail.nextNode.nextNode === null
+        ) {
+          previousNodeBeforeTail.nextNode = null;
+          return headOfList;
+        }
+
+        previousNodeBeforeTail = previousNodeBeforeTail.nextNode;
       }
     }
   }
@@ -200,7 +204,7 @@ class LinkedList {
     let searchNodeIndex = this.head;
 
     if (searchNodeIndex.value === value && nodePosition === 0) {
-      console.log(nodePosition);
+      // console.log(nodePosition);
       return nodePosition;
     }
 
@@ -208,7 +212,7 @@ class LinkedList {
       nodePosition += 1;
       searchNodeIndex = searchNodeIndex.nextNode;
       if (searchNodeIndex.value === value) {
-        console.log(nodePosition);
+        // console.log(nodePosition);
         return nodePosition;
       }
 
@@ -230,8 +234,12 @@ class LinkedList {
     convertToStringsLists += `(${startFromHead.value}) -> `;
     while (startFromHead !== null) {
       startFromHead = startFromHead.nextNode;
+
+      if (startFromHead !== null) {
+        convertToStringsLists += `(${startFromHead.value}) -> `;
+      }
     }
-    convertToStringsLists += "null";
+    convertToStringsLists += " null";
     return convertToStringsLists;
   }
 
