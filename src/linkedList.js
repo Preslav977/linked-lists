@@ -19,9 +19,9 @@ class LinkedList {
   // 1. append(value) parameter, this method will add the node to the end of the list
   // Maybe check if there is tail and has any value to assign to the node's value
 
-  head;
+  head = null;
 
-  tail;
+  tail = null;
 
   countNodes = 0;
 
@@ -33,18 +33,28 @@ class LinkedList {
       const newNode = new Node(value);
       // count the node if it's created
       this.head = newNode;
-      console.log(this.head);
+
       this.countNodes += 1;
+
+      return this.head;
       // else if there is a head already
-    } else {
-      // create new node
-      this.tail = new Node(value);
-      // point the head to the new node
-      this.head.nextNode = this.tail;
-      // count the nodes
-      console.log(this.head);
-      this.countNodes += 1;
     }
+
+    if (!this.tail) {
+      this.tail = new Node(value);
+
+      this.countNodes += 1;
+
+      return this.tail;
+    }
+
+    const newNode = new Node(value);
+
+    this.head.nextNode = this.tail;
+
+    this.tail.nextNode = newNode;
+
+    return this.head;
   }
 
   // 2. prepend(value) parameter, this method will add the node
@@ -55,18 +65,19 @@ class LinkedList {
       // create new node which will become the head
       this.head = new Node(value);
       // count the created node
-      console.log(this.head);
       this.countNodes += 1;
-    } else {
-      // else create new node
-      const newNode = new Node(value);
-      // point that node to the previous node
-      newNode.nextNode = this.head;
-      this.head = newNode;
-      // count the created node
-      console.log(this.head);
-      this.countNodes += 1;
+
+      return this.head;
     }
+    // else create new node
+    const newNode = new Node(value);
+    // point that node to the previous node
+    newNode.nextNode = this.head;
+    this.head = newNode;
+    // count the created node
+    this.countNodes += 1;
+
+    return this.head;
   }
 
   // Check if the head has any value, and assign the node's value ?
@@ -82,7 +93,6 @@ class LinkedList {
   // Maybe for loop though the whole list, and return the nodes in the current list ?
   size() {
     // return the number of nodes of the list
-    console.log(this.countNodes);
     return this.countNodes;
   }
 
